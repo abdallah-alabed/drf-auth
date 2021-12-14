@@ -7,7 +7,7 @@ from .permissions import IsAuthenticatedOrReadOnly
 # CR views
 class MovieList(generics.ListCreateAPIView):
     # queryset = Movie.objects.filter(published = True)
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    permission_class = (IsAuthenticatedOrReadOnly,)
     queryset = Movie.objects.all()
     serializer_class = MovieSerialzer
     
@@ -16,4 +16,4 @@ class MovieList(generics.ListCreateAPIView):
 class MovieDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Movie.objects.all()
     serializer_class = MovieSerialzer
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    permission_class = (IsAuthenticatedOrReadOnly,)
